@@ -1,20 +1,23 @@
-const botaoSomar = document.querySelector("form button")
-botaoSomar.addEventListener("click", (e) => {
-    e.preventDefault()
-    somar()
-})
+const botaoCalcular = document.querySelector("form button");
 
-function somar() {
-    const numero1 = document.querySelector("#numero-1").valueAsNumber
-    const numero2 = document.querySelector("#numero-2").valueAsNumber
+botaoCalcular.addEventListener("click", (evento) => {
+    evento.preventDefault();
+    calcularSoma();
+});
 
-    const resultado = numero1 + numero2
+function calcularSoma() {
+    const campoNumero1 = document.querySelector("#numero-1");
+    const campoNumero2 = document.querySelector("#numero-2");
 
-   mostrarResultado(resultado)
+    const valor1 = campoNumero1.valueAsNumber;
+    const valor2 = campoNumero2.valueAsNumber;
 
+    const soma = valor1 + valor2;
+
+    exibirResultado(soma);
 }
 
-function mostrarResultado(resultado) {
-    const paragrafoResultado = document.querySelector("#resultado")
-    paragrafoResultado.textContent = `Resultado: ${resultado}`
+function exibirResultado(valor) {
+    const areaResultado = document.querySelector("#resultado");
+    areaResultado.textContent = `Resultado da soma: ${valor}`;
 }
